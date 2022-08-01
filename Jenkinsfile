@@ -2,12 +2,13 @@ pipeline {
     agent any
     tools {
         nodejs 'nodejs'
+        docker 'dockerTool'
     }
     stages {
         stage('git') {
             steps {
                 echo 'pulling code'
-                git branch: 'main', url: 'https://github.com/pranaypiyush25/trackcov'
+                git 'https://github.com/pranaypiyush25/trackcov'
             }
         }
         stage('Bug Cap')
